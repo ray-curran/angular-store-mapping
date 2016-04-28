@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Location Selection Babay</title>
+  <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/application.css">
+</head>
+<body ng-app="locations" ng-controller="MainCtrl as app">
+
+  <div class="top">
+    <h2>Search Locations</h2>
+    <input class="search" type="text" ng-model="locationSearch" placeholder="Search">
+    <a class="top-link" href="#">Show Selected ({{countSelected}})</a> /
+    <a class="top-link" href="#" ng-click="selectAll()">Select All</a> /
+    <a class="top-link" href="#" ng-click="deselectAll()">Deselect All</a>
+  </div>
+
+  <div class="container">
+
+    <div class="split-page">
+      <ul ng-repeat="(key, value) in sevens | groupBy: 'state'">
+        <div class="state"><h3>State: {{ key }} </h3><a class="select-em" href="#" ng-click="selectAll(key)">Select All</a></div>
+        <li ng-repeat="location in value | filter:locationSearch">
+          <div class="twenty"><input class="checkbox" type="checkbox" ng-model="location.checkVal" ng-click="countem()"></div>
+          <div class="eighty"><b>{{ location.address }}</b><br>
+          {{ location.city }}, {{location.state}}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+</div>
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+      <ui-gmap-markers models="selectedStores"
+      coords="'self'"
+      fit=true
+      >
+      </ui-gmap-markers>
+      <ui-gmap-markers models="unselectedStores"
+      coords="'self'"
+      icon="'icon'">
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
+
+<script src="https://cdn.jsdelivr.net/lodash/4.11.2/lodash.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="javascripts/angular-simple-logger.js"></script>
+<script src="javascripts/angular-google-maps.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+<script src="javascripts/app.js"></script>
+</body>
+</html>
