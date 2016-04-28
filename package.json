@@ -1,0 +1,31 @@
+{
+  "name": "location-selection",
+  "version": "1.0.0",
+  "description": "location selection for 7/11s",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ray-curran/angular-store-mapping.git"
+  },
+  "author": "ray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ray-curran/angular-store-mapping/issues"
+  },
+  "homepage": "https://github.com/ray-curran/angular-store-mapping#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-watch": "^4.3.5"
+  }
+}
